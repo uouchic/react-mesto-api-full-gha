@@ -21,10 +21,11 @@ const NotFoundError = require('./errors/not-found-error');
 const { PORT = 4000 } = process.env;
 
 mongoose
-  .connect('mongodb://localhost:3000/mestodb', {
+  .connect('mongodb://127.0.0.1:27017/mestodb', {
     useNewUrlParser: true,
   })
   .then(() => {
+    console.log('Мы подключились к базе данных');
   });
 
 const app = express();
@@ -79,4 +80,5 @@ app.use((err, req, res, next) => {
 });
 
 app.listen(PORT, () => {
+  console.log(`Сервер запущен на порту ${PORT}`);
 });
