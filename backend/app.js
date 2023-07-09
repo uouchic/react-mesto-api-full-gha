@@ -25,6 +25,7 @@ mongoose
     useNewUrlParser: true,
   })
   .then(() => {
+    // eslint-disable-next-line no-console
     console.log('Мы подключились к базе данных');
   });
 
@@ -61,8 +62,8 @@ app.post(
 
 app.use(auth);
 
-app.use(userRouters);
-app.use(cardRouters);
+app.use('/api', userRouters);
+app.use('/api', cardRouters);
 
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Маршрут не найден'));
