@@ -11,6 +11,6 @@
 
 IP 51.250.110.50
 
-Frontend v-che.nomoredomains.work
+Frontend https://v-che.nomoredomains.work/
 
-Backend v-che.nomoredomains.work/api
+Backend https://v-che.nomoredomains.work/api/
