@@ -1,4 +1,4 @@
-export const BASE_URL = "http://v-che.nomoredomains.work/api";
+export const BASE_URL = "https://v-che.nomoredomains.work/api";
 
 function getResponseData(res) {
   return res.ok ? res.json() : Promise.reject(`Ошибка: ${res.status}`);
