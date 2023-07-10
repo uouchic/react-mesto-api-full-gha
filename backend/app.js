@@ -31,7 +31,7 @@ mongoose
 
 const app = express();
 
-app.use(cors({ origin: 'https://v-che.nomoredomains.work' }));
+app.use(cors({ origin: 'http://v-che.nomoredomains.work' }));
 
 app.use(bodyParser.json());
 

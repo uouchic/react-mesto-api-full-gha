@@ -9,7 +9,7 @@
 
 ## Ссылки на проект
 
-IP-адрес 51.250.110.50
+IP-адрес <51.250.110.50>
 
 Frontend https://v-che.nomoredomains.work
 
