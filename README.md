@@ -9,8 +9,8 @@
 
 ## Ссылки на проект
 
-IP-адрес <51.250.110.50>
+IP 51.250.110.50
 
-Frontend https://v-che.nomoredomains.work
+Frontend v-che.nomoredomains.work
 
-Backend https://v-che.nomoredomains.work/api
+Backend v-che.nomoredomains.work/api
