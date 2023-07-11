@@ -10,6 +10,7 @@ const userRouters = require('./routes/users');
 const cardRouters = require('./routes/cards');
 
 const { auth } = require('./middlewares/auth');
+const { requestLogger, errorLogger } = require('./middlewares/logger');
 
 const {
   createUser,
@@ -34,6 +35,8 @@ const app = express();
 app.use(cors({ origin: 'http://v-che.nomoredomains.work' }));
 
 app.use(bodyParser.json());
+
+app.use(requestLogger);
 
 app.post(
   '/api/signin',
@@ -68,6 +71,8 @@ app.use('/api', cardRouters);
 app.use('*', (req, res, next) => {
   next(new NotFoundError('Маршрут не найден'));
 });
+
+app.use(errorLogger);
 
 app.use(errors());
 
