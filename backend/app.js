@@ -38,6 +38,12 @@ app.use(bodyParser.json());
 
 app.use(requestLogger);
 
+app.get('/api/crash-test', () => {
+  setTimeout(() => {
+    throw new Error('Сервер сейчас упадёт');
+  }, 0);
+});
+
 app.post(
   '/api/signin',
   celebrate({

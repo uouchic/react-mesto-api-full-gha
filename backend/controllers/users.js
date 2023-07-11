@@ -1,5 +1,9 @@
 const bcrypt = require('bcrypt');
 
+require('dotenv').config();
+
+const { NODE_ENV, JWT_SECRET } = process.env;
+
 const saltRounds = 10;
 const jwt = require('jsonwebtoken');
 
@@ -123,7 +127,7 @@ const login = (req, res, next) => {
             return next(new UnauthorizedError('Неправильный пароль'));
           }
 
-          const token = jwt.sign({ id: admin._id }, 'some-secret-key', { expiresIn: '7d' });
+          const token = jwt.sign({ id: admin._id }, NODE_ENV === 'production' ? JWT_SECRET : 'some-secret-key', { expiresIn: '7d' });
 
           return res.status(200).send({ token });
         });
