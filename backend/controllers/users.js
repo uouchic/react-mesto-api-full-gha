@@ -42,10 +42,6 @@ const createUser = (req, res, next) => {
     name, about, avatar, email, password,
   } = req.body;
 
-  if (!email || !password) {
-    throw new BadRequest('Не переданы email или пароль');
-  }
-
   User.findOne({ email })
 
     .then((admin) => {
@@ -112,10 +108,6 @@ const updateAvatar = (req, res, next) => {
 
 const login = (req, res, next) => {
   const { email, password } = req.body;
-
-  if (!email || !password) {
-    throw new BadRequest('Не переданы email или пароль');
-  }
 
   return User.findOne({ email }).select('+password')
     .then((admin) => {
