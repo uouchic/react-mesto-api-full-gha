@@ -34,7 +34,10 @@ class Api {
   addNewCard(data) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "content-type": "application/json",
+      },
       body: JSON.stringify(data),
     }).then((res) => this._getResponseData(res));
   }
@@ -42,7 +45,10 @@ class Api {
   setUserInfo(userInfo) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "content-type": "application/json",
+      },
       body: JSON.stringify({
         name: userInfo.name,
         about: userInfo.about,
@@ -53,7 +59,10 @@ class Api {
   updateAvatar(data) {
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "content-type": "application/json",
+      },
       body: JSON.stringify({
         avatar: data.avatar,
       }),
@@ -64,18 +73,27 @@ class Api {
     return isLiked
       ? fetch(`${this._baseUrl}/cards/${id}/likes`, {
           method: "PUT",
-          headers: this._headers,
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            "content-type": "application/json",
+          },
         }).then((res) => this._getResponseData(res))
       : fetch(`${this._baseUrl}/cards/${id}/likes`, {
           method: "DELETE",
-          headers: this._headers,
+          headers: {
+            authorization: `Bearer ${localStorage.getItem("jwt")}`,
+            "content-type": "application/json",
+          },
         }).then((res) => this._getResponseData(res));
   }
 
   removeCard(id) {
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
-      headers: this._headers,
+      headers: {
+        authorization: `Bearer ${localStorage.getItem("jwt")}`,
+        "content-type": "application/json",
+      },
     }).then((res) => this._getResponseData(res));
   }
 }
